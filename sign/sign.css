@@ -1,0 +1,83 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans Light';
+    letter-spacing: .05em;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    /* background-image: linear-gradient(to right, #b2f9ff, #efebbe); */
+    background: #fcd6e3;
+    background: -moz-linear-gradient(to bottom, #fcd6e3 0%, #aaf0ed 100%);
+    background: -webkit-linear-gradient(to bottom, #fcd6e3 0%, #aaf0ed 100%);
+    background: linear-gradient(to bottom, #fcd6e3 0%, #aaf0ed 100%);
+
+}
+
+.mycontainer {
+    height: 100%;
+}
+
+.login-wrapper {
+    background-color: #fff;
+    width: 374px;
+    height: 500px;
+    border-radius: 15px;
+    padding: 0 58px;
+    box-sizing: border-box;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    margin-top: -350px;
+    margin-left: -187px;
+
+}
+
+.login-wrapper .myhearder {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 150px;
+}
+
+.login-wrapper .form-wrapper .input-item {
+    display: block;
+    width: 100%;
+    margin-bottom: 40px;
+    border: 0;
+    padding: 0 10px;
+    border-bottom: 1px solid rgb(126, 123, 123);
+    font-size: 15px;
+    outline: none;
+}
+.login-wrapper .form-wrapper .input-item:last-child{
+    margin-bottom: 0;
+}
+
+
+.login-wrapper .form-wrapper .mybtn {
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    margin-top: 40px;
+    width: 100%;
+    background-image: linear-gradient(to right, #aaf0ed, #fcd6e3);
+    font-weight: bold;
+    color: rgb(102, 99, 99);
+}
+
+.login-wrapper .msg {
+    line-height: 80px;
+    text-align: center;
+}
+
+.login-wrapper .msg a {
+    text-decoration-line: none;
+    color: #a6c1ee;
+
+}

@@ -1,0 +1,40 @@
+div.car .car-box{
+    height: 25rem;
+    padding-top: 3rem;
+}
+div.car .car-box div{
+    /* position: relative; */
+    width: 100%;
+    height: 70%;
+   
+}
+div.car .car-box span{
+    cursor: pointer;
+    font-size: 0;
+    /* padding-left: 2rem; */
+    text-align: center;
+    width: 20%;
+    height: 60px;
+}
+div.car .car-box span i{
+    font-size: 5rem;
+    color: #17a2b8;
+    font-style: normal;
+}
+
+div.car .car-box span p{
+    /* font-weight: bold; */
+    color: #666;
+
+    font-size: 1.5rem;
+}
+
+div.car .car-box span:hover{
+    background-color: rgba(0,123,255,0.8);
+}
+div.car .car-box span:hover i{
+    color: #fff;
+}
+div.car .car-box span:hover p{
+    color: #fff;
+}

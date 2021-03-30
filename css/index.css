@@ -1,0 +1,139 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    /* overflow-x: hidden; */
+}
+
+ul,
+li {
+    /* list-style: none; */
+    margin: 0;
+    /* padding: 0; */
+
+}
+
+
+
+div.navTop {
+    padding-left: 15px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+div.navTop header {
+
+    width: 100%;
+    box-sizing: border-box;
+}
+
+div.navTop header span {
+    padding: 0;
+    word-break: break-all;
+    height: 5rem;
+    box-sizing: border-box;
+    line-height: 5rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.4s;
+    /* background-color: yellowgreen; */
+
+}
+
+div.line div.tit {
+    height: 3rem;
+}
+
+div.line div.tit .divline {
+    height: 1px;
+    position: relative;
+    top: 1.5rem;
+
+}
+
+div.line div.tit .divline p {
+    font-size: 2rem;
+    color: #666;
+    letter-spacing: 0.3rem;
+    position: absolute;
+    top: -1.5rem;
+
+}
+
+
+
+div.navTop header span:hover {
+    background-color: rgba(131, 223, 247, 0.4);
+    border-bottom: 0.2rem solid #007bff;
+}
+
+div.selectKm ul.item {
+    width: 90%;
+    height: 90%;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding-left: 2rem;
+}
+
+div.selectKm .f-ul {
+    height: 23rem;
+    width: 100%;
+}
+
+div.selectKm ul.item span {
+    position: relative;
+    height: 3rem;
+    width: 80%;
+    margin: 1.3rem 0 1.3rem 0;
+    line-height: 3rem;
+    font-size: 1.5rem;
+    padding-left: 2rem;
+    font-weight: 700;
+    color: #666;
+    flex-wrap: wrap;
+
+}
+
+div.selectKm ul.item span div {
+    position: absolute;
+}
+
+div.selectKm ul.item li {
+    height: 3rem;
+    padding-left: 2rem;
+    width: 80%;
+    margin: 0.85rem 0;
+    background-color: #f8efef;
+    line-height: 3rem;
+    border-radius: 5px;
+    color: #333;
+    transition: 0.2s;
+    cursor: pointer;
+}
+div.selectKm ul.item li.active{
+    color: #fff;
+
+    background-color: #17a2b8;
+}
+
+div.selectKm ul.item li:hover {
+    color: #fff;
+
+    background-color: #17a2b8;
+}
+
+
+@font-face {
+    font-family: 'iconCar';  /* project id 2447584 */
+    src: url('//at.alicdn.com/t/font_2447584_cwiht9eui47.eot');
+    src: url('//at.alicdn.com/t/font_2447584_cwiht9eui47.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_2447584_cwiht9eui47.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_2447584_cwiht9eui47.woff') format('woff'),
+    url('//at.alicdn.com/t/font_2447584_cwiht9eui47.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_2447584_cwiht9eui47.svg#iconfont') format('svg');
+  }
+
+.icon {
+    font-size: 16px;
+    font-family: "iconCar";
+}

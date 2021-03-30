@@ -1,0 +1,111 @@
+div.test{
+    height: 25rem;
+    padding-top: 1rem;
+}
+
+div.test div.box{
+    width: 13rem;
+    height: 18rem;
+    
+}
+div.test .pic{
+    background-size:auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+div.test div input{
+    appearance: auto;
+}
+div.test .collector{
+    position: absolute;
+    right: 2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.2s;
+
+}
+
+div.test .collector:hover{
+    color: rgba(223, 223, 11, 0.829);
+    transform: scale(1.2);
+}
+div.test .collector.active{
+    color: rgba(223, 223, 11, 0.8);
+    /* background-color: rgba(223, 223, 11, 0.8); */
+}
+div.test .record{
+    line-height: 2rem;
+    font-weight: bold;
+    position: absolute;
+    right: 4rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+div.test .record a{
+    color: inherit;
+    text-decoration: none;
+}
+div.test .record:hover{
+    color: cornflowerblue;
+    transform: scale(1.2);
+}
+div.test div i{
+    font-weight: bold;
+    font-style: normal;
+    padding: 0 3px;
+}
+
+div.test  .ques{
+    position: relative;
+    width: 100%;
+    padding-top: 1rem;
+}
+div.test  .ques label{
+    position: relative;
+    width: 80%;
+}   
+div.test  .ques label div{
+    position: absolute;
+    left: -4px;
+    top: -1px;
+    font-size: 18px;
+    display: inline-block;
+    background-color: #fff;
+    
+}
+.iconNot{
+    color: rgb(216,30,6);
+}
+.iconYes{
+    color: rgb(59,169,246);
+}
+div.test  .ques button.next{
+    position: absolute;
+    bottom: 1rem;
+    left: 2rem;
+}
+div.test  .ques button.right{
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    box-sizing: border-box;
+
+}
+div.explain {
+    padding-top: 1rem;
+}
+
+div.explain span{
+    font-size: 1rem;
+}
+div.explain p{
+    font-size: 1rem;
+    margin-top: 1rem;
+    line-height: 28px;
+    color: #666;
+}
+div.explain p img{
+    width: 240px;
+    height: 240px;
+}

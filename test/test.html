@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>驾考题库</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/test/test.css">
+</head>
+
+<body>
+    <!-- 导航部分 -->
+    <div class="head"></div>
+    <!-- 面包屑区 -->
+    <div class="container-fulid">
+        <div class="row  d-flex justify-content-center mr-0 ml-0">
+            <div class="col-10 ">
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/index.html">首页</a></li>
+                        <li class="breadcrumb-item"><a href="/select_object/chouseType.html">选择车型</a></li>
+                        <li class="breadcrumb-item active">开始考试</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- 提示部分 -->
+    <div class="container-fulid  line mt-5">
+        <div class="row d-flex justify-content-center  mr-0 ml-0">
+            <div class="col-10  tit">
+                <div class="divline border-top d-flex justify-content-center">
+                    <p class="d-block  bg-white">开始考试！</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 考试区域 -->
+    <div class="container-fulid mt-2">
+        <div class="row d-flex justify-content-center  mr-0 ml-0">
+            <div class="col-9 d-flex test  ">
+                <div class="row w-100 h-100  justify-content-between my-test-content">
+                    <!-- 图片区 -->
+                    <div class="col-sm-3 pic border  box  align-self-center"></div>
+                    <!-- 题目区  -->
+                    <div class="col-sm-5 ques  box align-self-center border">
+                        <div class="icon collector" title="收藏">&#xe629;</div>
+                        <div class="icon record" title="错题本"><a href="javascript:;">&#xe60d;</a></div>
+
+                        <p class="ques-num">第几题</p>
+                        <p class="ques-text">哪个是正确的</p>
+                        <div class="my-btn-vertical">
+                            <label for="item1" class="d-block" data-id="1" data-isClick="true">
+                                <input type="radio" name="options" id="item1">
+                                <i>A</i>
+                                <span class="option1">选项A-D</span>
+
+                                <div class="bg-info d-inline-block px-1"></div>
+
+                            </label>
+
+                            <label for="item2" class="d-block" data-id="2" data-isClick="true">
+                                <input type="radio" name="options" id="item2">
+                                <i>A</i>
+                                <span class="option1">选项A-D</span>
+                                <div class="bg-info d-inline-block px-1"></div>
+                            </label>
+                            <label for="item3" class="d-block" data-id="3" data-isClick="true">
+                                <input type="radio" name="options" id="item3">
+                                <i>A</i>
+                                <span class="option1">选项A-D</span>
+                                <div class="bg-info d-inline-block px-1"></div>
+                            </label>
+                            <label for="item4" class="d-block" data-id="4" data-isClick="true">
+                                <input type="radio" name="options" id="item4">
+                                <i>A</i>
+                                <span class="option1">选项A-D</span>
+                                <div class="bg-info d-inline-block px-1"></div>
+                            </label>
+                        </div>
+                        <button class="btn btn-primary next disable">下一题</button>
+                        <button class="btn btn-danger text-white right ">正确答案是：<span
+                                class="badge badge-light">A</span></button>
+                    </div>
+                    <!-- 解释区 -->
+                    <div class="col-sm-3 explain box  align-self-center border">
+                        <span class="badge  badge-primary py-2">解释：</span>
+                        <p class="d-inline-block">本题无解释。本题无解释。本题无解释。本题无解释。本题无解释。本题无解释。本题无解释。</p>
+                    </div>
+                    <!-- hhh -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/jquery-3.5.1.js"></script>
+    <script>
+        $('.head').load("/head/head.html");
+        // $(this).parent
+    </script>
+    <script src="/test/test.js"></script>
+</body>
+
+</html>

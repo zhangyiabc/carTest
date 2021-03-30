@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>驾考题库</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/select_object/choseType.css">
+</head>
+
+<body>
+    <div class="head"></div>
+    
+    <!-- 面包屑区 -->
+    <div class="container-fulid">
+        <div class="row  d-flex justify-content-center mr-0 ml-0">
+            <div class="col-10 ">
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/index.html">首页</a></li>
+                        <li class="breadcrumb-item active">选择车型</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- 提示部分 -->
+    <div class="container-fulid  line mt-5">
+        <div class="row d-flex justify-content-center  mr-0 ml-0">
+            <div class="col-10  tit">
+                <div class="divline border-top d-flex justify-content-center">
+                    <p class="d-block  bg-white">请选择您的考试车型</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- 选择车型 -->
+    <div class="container-fulid mt-5">
+        <div class="row car d-flex justify-content-center  mr-0 ml-0">
+            <div class="car-box col-sm-10 y justify-content-center">
+                <div class=" d-flex justify-content-between ">
+                    <span class="h-75 border border-primary rounded-lg ">
+                        <i class="icon ">&#xe81f;</i>
+                        <p>小车</p>
+                    </span>
+                    <span class="h-75 border border-primary rounded-lg ">
+                        <i class="icon ">&#xe66b;</i>
+                        <p>客车</p>
+                    </span>
+                    <span class="h-75 border border-primary rounded-lg ">
+                        <i class="icon ">&#xe61b;</i>
+                        <p>货车</p>
+                    </span>
+                    <span class="h-75 border border-primary rounded-lg ">
+                        <i class="icon ">&#xe829;</i>
+                        <p>摩托车</p>
+                    </span>
+
+                </div>
+                <a href="/test/test.html"
+                    class="btn btn-primary w-25 mx-auto d-block text-white text-center  mt-1 ">开始练习</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/js/jquery-3.5.1.js"></script>
+    <script>
+        $('.head').load("/head/head.html");
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

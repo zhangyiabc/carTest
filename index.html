@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>驾考题库</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
+    
+</head>
+
+<body>
+    <div class="head"></div>
+    <!-- 提示部分 -->
+    <div class="container-fulid  line mt-5">
+        <div class="row d-flex justify-content-center  mr-0 ml-0">
+            <div class="col-10  tit">
+                <div class="divline border-top d-flex justify-content-center">
+                    <p class="d-block  bg-white">驾校理论考试题库</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 选择部分 -->
+    <div class="container-fulid mt-5 selectKm">
+        <div class="row d-flex justify-content-center  mr-0 ml-0">
+            <div class="col-sm-4  f-ul">
+                <ul class="item km1 border list-unstyled mx-auto d-block ">
+                    <span class="tl2 d-block ">科目一
+                    </span>
+                    <li class="item-left icon1" data-testtype="order">
+                        <p>按照顺序练习做题</p>
+                    </li>
+                    <li class="item-left icon2" data-testtype="rand">
+                        <p>按随机顺序做题</p>
+                    </li>
+
+                    </li>
+                    <li class="item-right btn-bar" data-testtype="mock">
+                        <p>模拟考试</p>
+                    </li>
+                    <a href = "select_object/chouseType.html" class="btn btn-primary offset-2 offset-sm-3  text-white  mt-1 disabled" data-sub="1">开始练习</a>
+
+                </ul>
+            </div>
+            <div class="col-sm-4 align-self-end f-ul ">
+
+                <ul class="item km4 border list-unstyled d-block mx-auto">
+                    <span class="tl2 d-block ">科目四
+                    </span>
+                    <li class="item-left " data-testtype="order">
+                        <p>按照顺序练习做题</p>
+                    </li>
+                    <li class="item-left " data-testtype="rand">
+                        <p>按随机顺序做题</p>
+                    </li>
+
+                    </li>
+                    <li class="item-right " data-testtype="mock">
+                        <p>模拟考试</p>
+                    </li>
+                    <a href = "#" class="btn btn-primary offset-2 offset-sm-3 text-white  mt-1 disabled" data-sub="4">开始练习</a>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    
+    <script src="/js/jquery-3.5.1.js"></script>
+    <script>
+        $('.head').load("/head/head.html");
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="/js/index.js"></script>
+</body>
+
+</html>
