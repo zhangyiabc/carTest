@@ -14,7 +14,7 @@
                 
                 alert('登录成功！');
                 sessionStorage.setItem("isLogon",true);
-                window.location.pathname = "index.html"
+                window.location.pathname = "/index/index.html";
             }else{
                 alert("账户密码输入不正确，请检查")
             }
