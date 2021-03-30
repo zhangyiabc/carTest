@@ -14,7 +14,10 @@
                 
                 alert('登录成功！');
                 sessionStorage.setItem("isLogon",true);
-                window.location.pathname = "/index/index.html";
+                var initPath = window.location.pathname;
+                var index = initPath.indexOf('sign');
+                var house = initPath.substring(0,index);
+                window.location.pathname = house + "/index/index.html";
             }else{
                 alert("账户密码输入不正确，请检查")
             }

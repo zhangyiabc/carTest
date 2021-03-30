@@ -20,14 +20,17 @@
                 sessionStorage.setItem("name", name);
                 sessionStorage.setItem("password", pass);
                 //存储localStorage 以便下次登录
-                localStorage.setItem("uName",uName);
+                localStorage.setItem("uName", uName);
                 localStorage.setItem("name", name);
                 localStorage.setItem("password", pass);
                 //跳转到登录界面
                 var isTo = confirm("是否跳转到登录界面？");
                 console.log(isTo)
                 if (isTo) {
-                    window.location.pathname = "/sign/signIn.html"
+                    var initPath = window.location.pathname;
+                    var index = initPath.indexOf('sign');
+                    var house = initPath.substring(0, index);
+                    window.location.pathname = house + "/sign/signIn.html";
                 }
             } else {
                 alert("两次密码输入不一致，请确认")
