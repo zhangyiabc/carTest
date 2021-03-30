@@ -17,7 +17,7 @@
                 var initPath = window.location.pathname;
                 var index = initPath.indexOf('sign');
                 var house = initPath.substring(0,index);
-                window.location.pathname = house + "/index/index.html";
+                window.location.pathname = house + "index/index.html";
             }else{
                 alert("账户密码输入不正确，请检查")
             }

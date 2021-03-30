@@ -30,7 +30,7 @@
                     var initPath = window.location.pathname;
                     var index = initPath.indexOf('sign');
                     var house = initPath.substring(0, index);
-                    window.location.pathname = house + "/sign/signIn.html";
+                    window.location.pathname = house + "sign/signIn.html";
                 }
             } else {
                 alert("两次密码输入不一致，请确认")
