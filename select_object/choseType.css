@@ -1,14 +1,16 @@
-div.car .car-box{
+div.car .car-box {
     height: 25rem;
     padding-top: 3rem;
 }
-div.car .car-box div{
+
+div.car .car-box div {
     /* position: relative; */
     width: 100%;
     height: 70%;
-   
+
 }
-div.car .car-box span{
+
+div.car .car-box span {
     cursor: pointer;
     font-size: 0;
     /* padding-left: 2rem; */
@@ -16,25 +18,37 @@ div.car .car-box span{
     width: 20%;
     height: 60px;
 }
-div.car .car-box span i{
+
+div.car .car-box span.active{
+    background-color: rgba(0, 123, 255, 0.8);
+    color: #fff;
+}
+div.car .car-box span.active i,
+div.car .car-box span.active p{
+    color: #fff;
+}
+
+div.car .car-box span i {
     font-size: 5rem;
     color: #17a2b8;
     font-style: normal;
 }
 
-div.car .car-box span p{
+div.car .car-box span p {
     /* font-weight: bold; */
     color: #666;
 
     font-size: 1.5rem;
 }
 
-div.car .car-box span:hover{
-    background-color: rgba(0,123,255,0.8);
+div.car .car-box span:hover {
+    background-color: rgba(0, 123, 255, 0.8);
 }
-div.car .car-box span:hover i{
+
+div.car .car-box span:hover i {
     color: #fff;
 }
-div.car .car-box span:hover p{
+
+div.car .car-box span:hover p {
     color: #fff;
 }

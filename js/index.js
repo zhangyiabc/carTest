@@ -16,7 +16,9 @@ function bindEvent() {
         //科目一与科目四的样式不能同时出现
         $(this).parents('div.f-ul')
             .next().find('.km4 li')
-            .removeClass('active');
+            .removeClass('active')
+            .end().find('a.btn')
+            .addClass('disabled');
         
         testType = $(this).data('testtype');
     })
@@ -26,10 +28,13 @@ function bindEvent() {
         //科目一与科目四的样式不能同时出现
         $(this).parents('div.f-ul')
             .prev().find('.km1 li')
-            .removeClass('active');
+            .removeClass('active')
+            .end().find('a.btn')
+            .addClass('disabled');
         //由于目前科目四的题库还没有写，所以不能让他点击
         // $('.km4').find('a.btn').removeClass('disabled');
         // $('.km1').find('a.btn').addClass('disabled');
+
         testType = $(this).data('testType');
     })
     //点击"开始练习"时判断是否为登录状态，如果不是，让用户登录

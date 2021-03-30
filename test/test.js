@@ -19,7 +19,7 @@ var errorArr = JSON.parse(localStorage.getItem('errorArr')) || [];
 
 
 
-function send() {
+function send(km) {
     $.ajax({
         url: "../json/1_c2_order.json",
         dataType: "json",
@@ -31,14 +31,39 @@ function send() {
         },
         success: function (res) {
             if (res.reason == "ok") {
-                // getData(res.result);
-                tableData = res.result;
+                var option = localStorage.getItem("testType");
+                tableData = getData(res.result, option);
                 renderDom(_i)
             }
 
         }
     })
+};
+//根据不同的设置返回不同的数据
+/**
+ * 
+ * @param {*} dataArr 需要处理的数组
+ * @param {*} option 处理数据的条件 顺序练习、乱序练习(rand)、模拟考试练习(mock)
+ * @param {*} return 返回处理后的数组
+ */
+function getData(dataArr, option) {
+    var nowData = [];
+    if (option == "rand") {
+        //随机序
+        var randArr = _.shuffle(dataArr);
+        nowData = randArr;
+
+    } else if (option == 'mock') {
+        //模拟考试 ： 100道题
+        var randArr = _.shuffle(dataArr);
+        var arr_100 = _.chunk(randArr, 100);
+        nowData = _.sample(arr_100);
+    } else if (option == "order") {
+        nowData = dataArr;
+    }
+    return nowData;
 }
+
 //渲染页面
 function renderDom(index) {
     var nowObj = tableData[index];
@@ -172,8 +197,8 @@ function bindEvent() {
         var json_collArr = JSON.stringify(collectionArr);
 
         //转成字符串存入localStorage
-        localStorage.setItem('errorArr',json_errArr );
-        localStorage.setItem('collectionArr',json_collArr);
+        localStorage.setItem('errorArr', json_errArr);
+        localStorage.setItem('collectionArr', json_collArr);
         renderDom(_i);
     })
     //点击选项后出结果，并且显示解释
@@ -211,7 +236,7 @@ function bindEvent() {
             $(this).find("div.icon").html('&#xe64b;').addClass("iconNot").removeClass('iconYes');
             $(".test").find('label').eq(Number(problemObj.rightItem) - 1).find("div.icon").html('&#xe606;').addClass('iconYes');
             //调用一个存放数组并且可以去重
-            errorArr = intoArr(errorArr,tableData[_i]);
+            errorArr = intoArr(errorArr, tableData[_i]);
         }
         //正确答案
         $('.test').find('button.right').find('span').html(problemObj.rightKey);
@@ -222,11 +247,11 @@ function bindEvent() {
             .find('a').attr("href", problemObj.myExplainsUrl).html(problemObj.myExplainsUrl)
     })
     //点击收藏，记录该题目索引 并存储在localStorage里面
- 
+
     $('.test').on('click', '.ques .collector', function (e) {
         e.preventDefault();
         e.stopPropagation();
-        
+
         if ($(this)[0].dataset.active == "active") {
             $(this)[0].dataset.active = "";
             $(this).removeClass('active');
@@ -235,12 +260,12 @@ function bindEvent() {
             $(this)[0].dataset.active = "active";
             $(this).addClass('active');
             console.log('已添加收藏');
-            collectionArr =  intoArr(collectionArr,tableData[_i]);
+            collectionArr = intoArr(collectionArr, tableData[_i]);
 
         }
     })
 
-    
+
 }
 //存入数组
 /**
@@ -248,19 +273,19 @@ function bindEvent() {
  * @param {*} arrLast 数组中最后一个数据
  * @param {*} item 需要存储的当前数据
  */
-function intoArr(arr,item){
+function intoArr(arr, item) {
     arr.push(item);
     arr = uniq(arr);
     /**
      * 
      * @param {*} array 需要去重的数组
      */
-    function uniq(array){  
+    function uniq(array) {
         var temp = [];
-        var l =array.length;
-        for(var i= 0;i<l;i++){
-            for(var j =i+1;j<l;j++){
-                if(array[i] === array[j]){
+        var l = array.length;
+        for (var i = 0; i < l; i++) {
+            for (var j = i + 1; j < l; j++) {
+                if (array[i] === array[j]) {
                     i++;
                     j = i;
                 }
@@ -270,7 +295,7 @@ function intoArr(arr,item){
         return temp;
     }
     return arr;
-    
+
 }
 
 function init() {
