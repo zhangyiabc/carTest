@@ -35,7 +35,7 @@ div.navTop header span {
     line-height: 5rem;
     cursor: pointer;
     font-weight: bold;
-    transition: all 0.4s;
+    transition: all 0.2s;
     /* background-color: yellowgreen; */
 
 }
@@ -50,5 +50,5 @@ div.navTop header span a{
 
 div.navTop header span:hover {
     background-color: rgba(131, 223, 247, 0.4);
-    border-bottom: 0.2rem solid #007bff;
+    border-bottom: 0.2rem solid #96751a;
 }

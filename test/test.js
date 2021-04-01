@@ -18,8 +18,11 @@ var collectionArr = JSON.parse(localStorage.getItem('collectionArr')) || [];
 var errorArr = JSON.parse(localStorage.getItem('errorArr')) || [];
 
 
-
-function send(km) {
+/**
+ * 根据不同条件获取不同的数据
+ * @param {*} option 不同的条件：科目(科目一、科目四),车型(小车、货车、客车、摩托车)
+ */
+function send(option) {
     $.ajax({
         url: "../json/1_c2_order.json",
         dataType: "json",
@@ -48,6 +51,7 @@ function send(km) {
  */
 function getData(dataArr, option) {
     var nowData = [];
+    //以下方法使用了lodash
     if (option == "rand") {
         //随机序
         var randArr = _.shuffle(dataArr);
@@ -62,6 +66,42 @@ function getData(dataArr, option) {
         nowData = dataArr;
     }
     return nowData;
+
+    // 自己封装方法实现
+
+    // var data = res;
+    //倒序
+    // data.sort(function (a, b) {
+    //     return b.id - a.id;
+    // })
+    //乱序
+    // data.sort(function (a, b) {
+    //     return 0.5 - Math.random()
+    // })
+    //乱序 取一定的数量
+    // var dataLast = truncation(data, 100);
+    // return dataLast
+
+
+
+    // 封装方法取一点长度数组
+    // function truncation(arr, maxLen) {
+    //     var num = 1;
+    //     var mediateArr = [];
+    //     var targetArr = [];
+    //     arr.forEach(function (item) {
+    //         mediateArr.push(item);
+    //         if (num % maxLen == 0) {
+    //             targetArr.push(mediateArr);
+    //             mediateArr = [];
+    //         }
+    //         if (num == (arr.length - 1)) {
+    //             targetArr.push(mediateArr);
+    //         }
+    //         num++;
+    //     })
+    //     // console.log(targetArr)
+    // }
 }
 
 //渲染页面
