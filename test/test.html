@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv ="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>驾考题库</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -100,10 +100,55 @@
             </div>
         </div>
     </div>
-    
+    <!-- 弹出模态框 -->
+    <div class="modal fade bd-example-modal-xl" id="modal">
+        <!-- 这里添加.bd-example-modal-xl -->
+        <div class="modal-dialog modal-xl">
+            <!-- 这里添加.modal-xl -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">解决方案</h5>
+                    <button class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                   <h6 class="badge py-2 mx-2 badge-primary mt-4">第一步</h6>
+                   <p >1.当您出现图片加载不出来的情况，如下图↓</p>
+                   <img class="d-block" src="./solve/1.png" alt="">
+                   <h6 class="badge py-2 mx-2 badge-primary mt-4">第二步</h6>
+                   <p >2.按下<span class="badge badge-info">F12</span>或者<span class="badge badge-info">右键</span>检查，如下图↓</p>
+                   <img class="d-block" src="./solve/2.png" alt="">
+                   <h6 class="badge py-2 mx-2 badge-primary mt-4">第三步</h6>
+                   <p >3.点击<span class="badge badge-info">控制台</span>报错的地方，鼠标移入<span class="badge badge-info">链接</span>右键，如下图↓</p>
+                   <img class="d-block" src="./solve/3.png" alt="">
+                   <h6 class="badge py-2 mx-2 badge-primary mt-4">第四步</h6>
+                   <p >4.在<span class="badge badge-info">新标签页打开(Open in new tab)</span>，如下图↓</p>
+                   <img class="d-block" src="./solve/4.png" alt="">
+                   <h6 class="badge py-2 mx-2 badge-primary mt-4">第四步</h6>
+                   <p >5.点击<span class="badge badge-info">高级</span>，如下图↓</p>
+                   <img class="d-block" src="./solve/5.png" alt="">
+                   <h6 class="badge py-2 mx-2 badge-primary mt-4">第四步</h6>
+                   <p >6.点击<span class="badge badge-info">继续访问</span>，如下图↓</p>
+                   <img class="d-block" src="./solve/6.png" alt="">
+                   <h6 class="badge py-2 mx-2 badge-primary mt-4">第四步</h6>
+                   <p >7.返回题目页面<span class="badge badge-info">刷新</span>即可，如下图↓</p>
+                   <img class="d-block" src="./solve/7.png" alt="">
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-info solveBtn" data-toggle="modal" data-target="#modal">图片区未显示点击这里</button>
     <script>
         $('.head').load("../head/head.html");
         // $(this).parent
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <script src="./test.js"></script>
 </body>

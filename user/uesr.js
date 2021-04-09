@@ -1,6 +1,10 @@
 var lenKm1 = 1229;
 var lenKm4 = null;
-var lenKm1Err = JSON.parse(localStorage.getItem("errorArr")).length;
+try {
+    var lenKm1Err = JSON.parse(localStorage.getItem("errorArr")).length || 0;
+} catch (error) {
+    
+}
 (function(){
     if (!sessionStorage.getItem("isLogon")) {
         return false;

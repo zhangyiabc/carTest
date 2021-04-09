@@ -26,6 +26,7 @@
 } */
 
 .km .schedule-header{
+    font-weight: 700;
     position: relative;
     background-color: #fff;
     width: 130px;
@@ -42,12 +43,12 @@
 
 .km .schedule-header div.schedule-header-box:hover{
     color: #fff;
-    background-color: rgb(194, 235, 236);
+    background-color: #48dbfb;
     border-color: rgb(229, 205, 247);
 }
 .km .schedule-header.active div.schedule-header-box{
     color: #fff;
-    background-color: rgb(186, 236, 236);
+    background-color: #48dbfb;
     border-color: rgb(229, 203, 250);
 }
 
@@ -66,4 +67,9 @@
     font-size: 1.2rem;
     font-weight: 700;
     color: tomato;
+}
+
+.look span{
+    color: #fff;
+    cursor: pointer;
 }

@@ -9,7 +9,7 @@ div.test div.box{
     
 }
 div.test .pic{
-    background-size:auto;
+    background-size:230px;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -108,4 +108,23 @@ div.explain p{
 div.explain p img{
     width: 240px;
     height: 240px;
+}
+
+button.solveBtn{
+    position: absolute;
+    left: 20px;
+    top: 0%;
+    margin-top: 318px;
+    width: 50px;
+    height: 280px;
+}
+#modal p{
+    color: #666;
+}
+#modal h6{
+    font-size: 1.223rem;
+}
+#modal img{
+    width: 90%;
+    justify-content: center;
 }

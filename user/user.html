@@ -45,15 +45,15 @@
     <div class="container-fulid mt-3">
         <div class="row  d-flex justify-content-center mr-0 ml-0">
             <div class="col-10 schedule">
-                <div class=" schedule-content d-flex justify-content-around">
-                    <div class="col-5 border km km1">
+                <div class="row  schedule-content d-flex justify-content-around">
+                    <div class="col-sm-5 border km km1">
                         <span class="d-block text-center py-2">科目一</span>
                         <div class="d-flex justify-content-between mt-2 item item1">
                             <span class=" schedule-header text-center align-self-center">
                                 <div class="schedule-header-box">查看进度</div>
                                 <div class="hide">您的进度为:<i class="bfs"></i>%</div>
                             </span>
-                            <canvas class="border" width="130px" height="130px"></canvas>
+                            <canvas class="" width="130px" height="130px"></canvas>
 
                         </div>
                         <div class="d-flex justify-content-between mt-4 item item2">
@@ -61,25 +61,25 @@
                                 <div class="schedule-header-box">查看正确率</div>
                                 <div class="hide">正确率为:<i class="bfs"></i>%</div>
                             </span>
-                            <canvas class="border" width="130px" height="130px"></canvas>
+                            <canvas class="" width="130px" height="130px"></canvas>
 
                         </div>
                     </div>
-                    <div class="col-5 border km km4">
+                    <div class="col-sm-5 border km km4">
                         <span class="d-block text-center py-2">科目四</span>
                         <div class="d-flex justify-content-between mt-2 item item1">
                             <span class=" schedule-header text-center align-self-center">
                                 <div class="schedule-header-box">查看进度</div>
                                 <div class="hide">您的进度为:<i class="bfs"></i>%</div>
                             </span>
-                            <canvas class="border" width="130px" height="130px"></canvas>
+                            <canvas class="" width="130px" height="130px"></canvas>
                         </div>
                         <div class="d-flex justify-content-between mt-4 item item2">
                             <span class=" schedule-header text-center align-self-center">
                                 <div class="schedule-header-box">查看正确率</div>
                                 <div class="hide">正确率为:<i class="bfs"></i>%</div>
                             </span>
-                            <canvas class="border" width="130px" height="130px"></canvas>
+                            <canvas class="" width="130px" height="130px"></canvas>
 
                         </div>
                     </div>
@@ -88,13 +88,28 @@
             </div>
         </div>
     </div>
-    <!-- 查看错题 -->
-    <!-- 查看收藏题目 -->
 
+    <!-- 查看错题 -->
+    <div class="container-fulid mt-3 ">
+        <div class="row justify-content-center d-flex mr-0 ml-0">
+            <div class="col-10 look">
+                <div class="row w-100 d-flex justify-content-around ">
+                    <div class="col-sm-5  text-center py-3">
+                        <span href="javascript:0;" class="sticky-top btn btn-dark text-center  text-white w-50">查看错题</span>
+                    </div>
+                    <div class="col-sm-5  text-center py-3">
+                        <span href="javascript:0;" class="sticky-top btn btn-dark text-center text-white  w-50">查看收藏题目</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <span href="javascript:0;" class="sticky-top " style="height: 50px;top: 220px;">查看收藏题目</span> -->
+    <!-- 查看收藏题目 -->
+    <!-- <div class="position-sticky" style="width: 5rem;height: 5rem;background: green;">粘性定位，在这里是有效果的</div> -->
     <script src="./uesr.js"></script>
-    <script>
-        $('div').siblings()
-    </script>
+
 </body>
 
 </html>
