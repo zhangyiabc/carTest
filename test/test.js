@@ -1,5 +1,5 @@
 var tableData = null;
-//题目数组缩印
+//题目数组索引
 var _i = localStorage.getItem('index') || 0;
 
 //关于题目得数据存储在对象里面
@@ -16,15 +16,47 @@ var problemObj = {
 var collectionArr = JSON.parse(localStorage.getItem('collectionArr')) || [];
 //错误题目数组
 var errorArr = JSON.parse(localStorage.getItem('errorArr')) || [];
-
+//科目以及车型信息
+var testInfo = {
+    km: localStorage.getItem("km"),
+    carType: localStorage.getItem("carType"),
+}
 
 /**
  * 根据不同条件获取不同的数据
  * @param {*} option 不同的条件：科目(科目一、科目四),车型(小车、货车、客车、摩托车)
  */
-function send(option) {
+function getTestData(obj) {
+    if (obj.km == "1") {
+
+        switch (obj.carType) {
+            case "c":
+                //小车
+                send("../json/qiche.json")
+                break;
+            case "a":
+                //客车
+                send("../json/keche.json")
+                break;
+            case "b":
+                //货车
+                send("../json/huoche.json")
+                break;
+            case "e":
+                //摩托车
+                send("../json/motuoche.json")
+                break;
+            default:
+                break;
+        }
+    } else if (obj.km == "4") {
+        send("../json/4.json")
+    }
+}
+
+function send(url) {
     $.ajax({
-        url: "../json/1_c2_order.json",
+        url: url,
         dataType: "json",
         data: {
             key: "f6835df552381091cd26b5e5ef87e709",
@@ -33,10 +65,10 @@ function send(option) {
             testType: "order",
         },
         success: function (res) {
-            if (res.reason == "ok") {
-                var option = localStorage.getItem("testType");
-                tableData = getData(res.result, option);
-                renderDom(_i)
+            if (res.statusCode == "000000") {
+                var type = localStorage.getItem("testType");
+                tableData = getTypeData(res.result.driverQuestionList, type);
+                renderDom(_i);
             }
 
         }
@@ -49,7 +81,7 @@ function send(option) {
  * @param {*} option 处理数据的条件 顺序练习、乱序练习(rand)、模拟考试练习(mock)
  * @param {*} return 返回处理后的数组
  */
-function getData(dataArr, option) {
+function getTypeData(dataArr, option) {
     var nowData = [];
     //以下方法使用了lodash
     if (option == "rand") {
@@ -109,8 +141,25 @@ function renderDom(index) {
     var nowObj = tableData[index];
     //str 存储dom元素
     var str = '';
-    problemObj.id = nowObj.id;
-    problemObj.rightItem = nowObj.answer;
+    console.log(nowObj)
+    problemObj.id = nowObj.questionID - 4437 + 1;
+    
+    /**
+     {
+                "questionID": 4437,
+                "question": "驾驶机动车在道路上违反道路交通安全法的行为，属于什么行为？",
+                "questionType": "2",
+                "optionA": "违章行为",
+                "optionB": "违法行为",
+                "optionC": "过失行为",
+                "optionD": "违规行为",
+                "key": "B",
+                "explains": "“违反道路交通安全法”，违反法律法规即为违法行为。官方已无违章/违规的说法。",
+                "licenseType": "小车",
+                "subjectType": "科目一"
+            },
+     */
+    problemObj.rightItem = nowObj.questionType;
 
     var now = nowObj.explains;
 
@@ -121,7 +170,7 @@ function renderDom(index) {
         problemObj.myExplainsText = nowObj.explains;
     }
 
-    switch (Number(nowObj.answer)) {
+    switch (Number(nowObj.questionType)) {
         case 1:
             problemObj.rightKey = "A";
             break;
@@ -138,37 +187,37 @@ function renderDom(index) {
             break;
     }
 
-    if (nowObj.item3) {
+    if (nowObj.optionC) {
         str = `<div class="col-sm-3 pic border  box  align-self-center"></div>
     <div class="col-sm-5 ques  box align-self-center border">
         <div class="icon collector" title="收藏" data-active="">&#xee99;</div>
         <div class="icon record" title="错题本"><a href="javascript:;">&#xe60d;</a></div>
 
-        <p class="ques-num">第${nowObj.id}题</p>
+        <p class="ques-num">第${problemObj.id}题</p>
         <p class="ques-text">${nowObj.question}</p>
         <div class="my-btn-vertical">
             <label for="item1" class="d-block" data-id="1" data-isclick="true">
                 <input type="radio"  name="options" id="item1">
                 <i>A:</i>
-                <span class="option1">${nowObj.item1}</span>
+                <span class="option1">${nowObj.optionA}</span>
                 <div class=" icon d-inline-block  px-1"></div>
             </label>
             <label for="item2" class="d-block" data-id="2" data-isclick="true">
                 <input type="radio" name="options" id="item2">
                 <i>B:</i>
-                <span class="option1">${nowObj.item2}</span>
+                <span class="option1">${nowObj.optionB}</span>
                 <div class=" icon d-inline-block px-1"></div>
             </label>
             <label for="item3" class="d-block" data-id="3" data-isclick="true">
                 <input type="radio" name="options" id="item3">
                 <i>C:</i>
-                <span class="option1">${nowObj.item3}</span>
+                <span class="option1">${nowObj.optionC}</span>
                 <div class=" icon d-inline-block px-1"></div>
             </label> 
             <label for="item4" class="d-block" data-id="4" data-isclick="true">
                 <input type="radio" name="options" id="item4">
                 <i>D:</i>
-                <span class="option1">${nowObj.item4}</span>
+                <span class="option1">${nowObj.optionD}</span>
                 <div class=" icon d-inline-block px-1"></div>
             </label> 
         </div>
@@ -185,20 +234,20 @@ function renderDom(index) {
     <div class="icon collector" title="收藏" data-active="">&#xee99;</div>
     <div class="icon record" title="错题本"><a href="javascript:;">&#xe60d;</a></div>
 
-        <p class="ques-num">第${nowObj.id}题</p>
+        <p class="ques-num">第${problemObj.id}题</p>
         <p class="ques-text">${nowObj.question}</p>
         <div class="my-btn-vertical">
             <label for="item1" class="d-block" data-id="1" data-isclick="true">
                 <input type="radio"  name="options" id="item1">
                 <i>A:</i>
-                <span class="option1">${nowObj.item1}</span>
+                <span class="option1">${nowObj.optionA}</span>
                 <div class=" icon d-inline-block px-1"></div>
             </label>
 
             <label for="item2" class="d-block" data-id="2" data-isclick="true">
                 <input type="radio" name="options" id="item2">
                 <i>B:</i>
-                <span class="option1">${nowObj.item2}</span>
+                <span class="option1">${nowObj.optionB}</span>
                 <div class=" icon d-inline-block px-1"></div>
             </label>
             
@@ -214,7 +263,7 @@ function renderDom(index) {
     }
     $('.test').find(".my-test-content").html(str)
     $('.test').find(".pic").css({
-        backgroundImage: "url(" + nowObj.url + ")",
+        backgroundImage: "url(" + nowObj.imageURL + ")",
     })
 
 }
@@ -339,7 +388,7 @@ function intoArr(arr, item) {
 }
 
 function init() {
-    send();
+    getTestData(testInfo);
     bindEvent()
 
 }
