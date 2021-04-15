@@ -64,6 +64,7 @@ function send(url) {
             model: "c1",
             testType: "order",
         },
+        type:"post",
         success: function (res) {
             if (res.statusCode == "000000") {
                 var type = localStorage.getItem("testType");
