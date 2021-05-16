@@ -1,6 +1,14 @@
+
+// 问题
+/**
+ * 1.数据拿不到  405  403
+ * 2.不一样的json数据
+ * 3.
+ */
+
 var tableData = null;
 //题目数组索引
-var _i = localStorage.getItem('index') || 0;
+var _i = Number(localStorage.getItem('index') || 0);
 
 //关于题目得数据存储在对象里面
 var problemObj = {
@@ -28,19 +36,19 @@ var testInfo = {
  */
 function getTestData(obj) {
     if (obj.km == "1") {
-
+        
         switch (obj.carType) {
             case "c":
                 //小车
-                send("../json/qiche.json")
+                send("../json/c1.json")
                 break;
             case "a":
                 //客车
-                send("../json/keche.json")
+                send("../json/a.json")
                 break;
             case "b":
                 //货车
-                send("../json/huoche.json")
+                send("../json/b.json")
                 break;
             case "e":
                 //摩托车
@@ -60,15 +68,13 @@ function send(url) {
         dataType: "json",
         data: {
             key: "f6835df552381091cd26b5e5ef87e709",
-            subject: 1,
-            model: "c1",
-            testType: "order",
+
         },
-        type:"post",
+        type:"get",
         success: function (res) {
-            if (res.statusCode == "000000") {
+            if (res.reason == "ok") {
                 var type = localStorage.getItem("testType");
-                tableData = getTypeData(res.result.driverQuestionList, type);
+                tableData = getTypeData(res.result, type);
                 renderDom(_i);
             }
 
@@ -117,7 +123,7 @@ function getTypeData(dataArr, option) {
 
 
 
-    // 封装方法取一点长度数组
+    // 封装方法取固定长度数组
     // function truncation(arr, maxLen) {
     //     var num = 1;
     //     var mediateArr = [];
@@ -142,25 +148,19 @@ function renderDom(index) {
     var nowObj = tableData[index];
     //str 存储dom元素
     var str = '';
-    console.log(nowObj)
-    problemObj.id = nowObj.questionID - 4437 + 1;
-    
-    /**
-     {
-                "questionID": 4437,
-                "question": "驾驶机动车在道路上违反道路交通安全法的行为，属于什么行为？",
-                "questionType": "2",
-                "optionA": "违章行为",
-                "optionB": "违法行为",
-                "optionC": "过失行为",
-                "optionD": "违规行为",
-                "key": "B",
-                "explains": "“违反道路交通安全法”，违反法律法规即为违法行为。官方已无违章/违规的说法。",
-                "licenseType": "小车",
-                "subjectType": "科目一"
-            },
-     */
-    problemObj.rightItem = nowObj.questionType;
+    problemObj.id = nowObj.id;
+    // {
+    //     "id": "1228",
+    //     "question": "驾驶机动车在道路上违反交通安全法规的行为属于违法行为。",
+    //     "answer": "1",
+    //     "item1": "正确",
+    //     "item2": "错误",
+    //     "item3": "",
+    //     "item4": "",
+    //     "explains": "题干中明确表述“违反道路交通安全法规”，违反法律法规即视为违法行为。",
+    //     "url": ""
+    // }
+    problemObj.rightItem = nowObj.answer;
 
     var now = nowObj.explains;
 
@@ -171,7 +171,7 @@ function renderDom(index) {
         problemObj.myExplainsText = nowObj.explains;
     }
 
-    switch (Number(nowObj.questionType)) {
+    switch (Number(nowObj.answer)) {
         case 1:
             problemObj.rightKey = "A";
             break;
@@ -187,8 +187,8 @@ function renderDom(index) {
         default:
             break;
     }
-
-    if (nowObj.optionC) {
+    //渲染页面
+    if (nowObj.item3) {
         str = `<div class="col-sm-3 pic border  box  align-self-center"></div>
     <div class="col-sm-5 ques  box align-self-center border">
         <div class="icon collector" title="收藏" data-active="">&#xee99;</div>
@@ -200,25 +200,25 @@ function renderDom(index) {
             <label for="item1" class="d-block" data-id="1" data-isclick="true">
                 <input type="radio"  name="options" id="item1">
                 <i>A:</i>
-                <span class="option1">${nowObj.optionA}</span>
+                <span class="option1">${nowObj.item1}</span>
                 <div class=" icon d-inline-block  px-1"></div>
             </label>
             <label for="item2" class="d-block" data-id="2" data-isclick="true">
                 <input type="radio" name="options" id="item2">
                 <i>B:</i>
-                <span class="option1">${nowObj.optionB}</span>
+                <span class="option1">${nowObj.item2}</span>
                 <div class=" icon d-inline-block px-1"></div>
             </label>
             <label for="item3" class="d-block" data-id="3" data-isclick="true">
                 <input type="radio" name="options" id="item3">
                 <i>C:</i>
-                <span class="option1">${nowObj.optionC}</span>
+                <span class="option1">${nowObj.item3}</span>
                 <div class=" icon d-inline-block px-1"></div>
             </label> 
             <label for="item4" class="d-block" data-id="4" data-isclick="true">
                 <input type="radio" name="options" id="item4">
                 <i>D:</i>
-                <span class="option1">${nowObj.optionD}</span>
+                <span class="option1">${nowObj.item4}</span>
                 <div class=" icon d-inline-block px-1"></div>
             </label> 
         </div>
@@ -241,14 +241,14 @@ function renderDom(index) {
             <label for="item1" class="d-block" data-id="1" data-isclick="true">
                 <input type="radio"  name="options" id="item1">
                 <i>A:</i>
-                <span class="option1">${nowObj.optionA}</span>
+                <span class="option1">${nowObj.item1}</span>
                 <div class=" icon d-inline-block px-1"></div>
             </label>
 
             <label for="item2" class="d-block" data-id="2" data-isclick="true">
                 <input type="radio" name="options" id="item2">
                 <i>B:</i>
-                <span class="option1">${nowObj.optionB}</span>
+                <span class="option1">${nowObj.item2}</span>
                 <div class=" icon d-inline-block px-1"></div>
             </label>
             
@@ -264,7 +264,7 @@ function renderDom(index) {
     }
     $('.test').find(".my-test-content").html(str)
     $('.test').find(".pic").css({
-        backgroundImage: "url(" + nowObj.imageURL + ")",
+        backgroundImage: "url(" + nowObj.url + ")",
     })
 
 }
